@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Customer Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --fb-blue: #1877F2;
+            --fb-blue-dark: #166FE5;
+            --fb-bg: #F0F2F5;
+            --fb-card: #FFFFFF;
+            --fb-text: #1C1E21;
+            --fb-gray: #606770;
+            --fb-accent-light: #E8F0FE;
+            --fb-accent-dark: #3B5998;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--fb-bg);
+            color: var(--fb-text);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Header (unchanged) */
+        .header {
+            background: var(--fb-card);
+            color: var(--fb-text);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #dadde1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--fb-blue);
+        }
+
+        .contact-number {
+            font-weight: 600;
+            background: var(--fb-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-number:hover {
+            background: var(--fb-blue-dark);
+        }
+
+        /* Updated Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--fb-blue) 0%, var(--fb-accent-dark) 50%, var(--fb-accent-light) 100%);
+            color: var(--fb-text);
+            text-align: center;
+            padding: 120px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.2)" /%3E%3C/svg%3E') no-repeat;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 250px;
+            height: 250px;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cpath d="M50 20 L70 50 L50 80 L30 50 Z" fill="rgba(255,255,255,0.15)" /%3E%3C/svg%3E') no-repeat;
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); opacity: 0.3; }
+            50% { transform: translate(20px, -20px); opacity: 0.5; }
+            100% { transform: translate(0, 0); opacity: 0.3; }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--fb-card);
+            color: var(--fb-blue);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background: var(--fb-blue-dark);
+            color: white;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            transform: scale(1.05);
+        }
+
+        .btn i {
+            margin-right: 10px;
+        }
+
+        /* Rest of the styles (unchanged) */
+        .services {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--fb-blue);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--fb-blue);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--fb-card);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #dadde1;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            background: var(--fb-blue);
+            color: white;
+            font-size: 36px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--fb-blue);
+        }
+
+        .service-content p {
+            color: var(--fb-gray);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 5%;
+            text-align: center;
+            position: relative;
+            background: var(--fb-bg);
+        }
+
+        .testimonials p {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--fb-gray);
+            font-size: 1.2rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1300px;
+            margin: 60px auto 0;
+        }
+
+        .testimonial {
+            background: var(--fb-card);
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            text-align: left;
+            border: 1px solid #dadde1;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 80px;
+            color: var(--fb-blue);
+            opacity: 0.1;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            margin-top: 20px;
+            font-weight: 600;
+            color: var(--fb-blue);
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            background: var(--fb-blue);
+            margin-right: 10px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--fb-blue);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: -60px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: pulseGlow 5s infinite;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--fb-blue);
+            font-size: 20px;
+            padding: 18px 50px;
+        }
+
+        .cta .btn:hover {
+            background: #f5f5f5;
+            color: var(--fb-blue-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--fb-card);
+            padding: 60px 5% 40px;
+            text-align: center;
+            color: var(--fb-gray);
+            font-size: 16px;
+            border-top: 1px solid #dadde1;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--fb-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--fb-blue-dark);
+        }
+
+        /* Call Button */
+        .call-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: var(--fb-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 6px 20px rgba(24, 119, 242, 0.3);
+            z-index: 99;
+            animation: pulse 1.5s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .call-float:hover {
+            transform: scale(1.15);
+            background: var(--fb-blue-dark);
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
+        }
+
+        .call-float i {
+            font-size: 18px;
+            animation: vibrate 0.3s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(24, 119, 242, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(24, 119, 242, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(24, 119, 242, 0); }
+        }
+
+        @keyframes vibrate {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-3px); }
+            75% { transform: translateX(3px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .hero::before, .hero::after {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .hero {
+                padding: 100px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .services {
+                padding: 60px 20px;
+            }
+
+            .service-card {
+                max-width: 450px;
+                margin: 0 auto;
+            }
+
+            .call-float {
+                width: 70px;
+                height: 70px;
+                bottom: 30px;
+                right: 30px;
+            }
+
+            .hero::before {
+                top: 5%;
+                left: -15%;
+            }
+
+            .hero::after {
+                bottom: -15%;
+                right: -15%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+
+            .service-content {
+                padding: 25px;
+            }
+
+            .call-float {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .call-float i {
+                font-size: 28px;
+            }
+
+            .hero::before, .hero::after {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook Logo">
+            <span class="logo-text">Facebook Support Pro</span>
+        </div>
+        <div class="contact-number">
+            <a href="tel:+1-844-513-3344" style="color: #F0F2F5; text-decoration: none;"><i class="fas fa-phone"></i> Call Facebook Support</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Expert Facebook Support When You Need It Most</h1>
+            <p>24/7 assistance for account recovery, hacked profiles, business pages, and advertising issues. Real human support with fast solutions.</p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <a href="tel:+1-844-513-3344" class="btn"><i class="fas fa-phone"></i> Call facebook support Now</a>
+                <a href="#services" class="btn" style="background: transparent; border: 2px solid var(--fb-accent-light); color: var(--fb-accent-light); box-shadow: none;"><i class="fas fa-info-circle"></i> Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Our Support Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-lock"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Account Recovery</h3>
+                    <p>Can't access your account? We'll guide you through Facebook's recovery process step-by-step to regain access quickly.</p>
+                    <a href="tel:+1-844-513-3344" class="btn" style="width: 100%; text-align: center; padding: 10px; font-size: 15px;"><i class="fas fa-phone"></i> Call Facebook Support</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Hacked Accounts</h3>
+                    <p>Emergency support for compromised accounts. We'll secure your profile and restore your access immediately.</p><br>
+                    <a href="tel:+1-844-513-3344" class="btn" style="width: 100%; text-align: center; padding: 10px; font-size: 15px;"><i class="fas fa-phone"></i> Call Customer Facebook Support</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Ad Account Issues</h3>
+                    <p>Solve advertising problems including banned accounts, payment issues, and campaign restrictions with our experts.</p>
+                    <a href="tel:+1-844-513-3344" class="btn" style="width: 100%; text-align: center; padding: 10px; font-size: 15px;"><i class="fas fa-phone"></i> Call Facebook Help Support</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-check-double"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Page Verification</h3>
+                    <p>Get the blue verification badge for your profile or page with our complete guidance through Meta's requirements.</p>
+                    <a href="tel:+1-844-513-3344" class="btn" style="width: 100%; text-align: center; padding: 10px; font-size: 15px;"><i class="fas fa-phone"></i> Call Facebook Support</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Content Appeals</h3>
+                    <p>Successfully appeal against removed content, page restrictions, or community standards violations.</p><br>
+                    <a href="tel:+1-844-513-3344" class="btn" style="width: 100%; text-align: center; padding: 10px; font-size: 15px;"><i class="fas fa-phone"></i> Call Customer Facebook Support</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Marketplace Help</h3>
+                    <p>Resolve buying/selling issues, banned listings, and payment problems on Facebook Marketplace.</p><br>
+                    <a href="tel:+1-844-513-3344" class="btn" style="width: 100%; text-align: center; padding: 10px; font-size: 15px;"><i class="fas fa-phone"></i> Call Facebook Help Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-title">Success Stories</h2>
+        <p>Don't just take our word for it - hear from people we've helped</p>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>I was locked out of my business account with 50,000 followers right before a product launch. The support team had me back in within 2 hours! Their knowledge of Facebook's systems is incredible.</p>
+                <div class="testimonial-author">- Priya M., E-commerce Business</div>
+            </div>
+            <div class="testimonial">
+                <p>After weeks of trying to resolve my hacked account alone, I called these experts. They navigated Facebook's recovery process perfectly and secured my profile with extra protection measures.</p>
+                <div class="testimonial-author">- Rajesh K., Photographer</div>
+            </div>
+            <div class="testimonial">
+                <p>Our ad account was restricted unfairly, threatening our entire marketing strategy. The team understood exactly which policies were triggered and crafted the perfect appeal. Account restored in 24 hours!</p>
+                <div class="testimonial-author">- Neha & Amit, Digital Agency</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Solve Your Facebook Problems?</h2>
+            <p>Our specialists are available 24/7 to provide immediate assistance. Don't waste time with automated systems - get real help now.</p>
+            <a href="tel:+1-844-513-3344" class="btn"><i class="fas fa-phone"></i> Call Call Facebook Support</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+        <p>© 2025 Facebook Support Pro. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 13px;">This service is not affiliated with Meta Platforms, Inc.</p>
+    </footer>
+
+    <a href="tel:+1-844-513-3344" class="call-float">
+        <i class="fas fa-phone"></i>
+    </a>
+</body>
+</html>
